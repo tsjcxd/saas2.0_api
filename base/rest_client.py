@@ -35,7 +35,7 @@ class Rest_Client:
             resp = self.session.post(url,data=data,json=json,**kwargs)
         if method=="delete":
             resp = self.session.delete(url,**kwargs)
-            return resp
+        return resp
 
 
 
