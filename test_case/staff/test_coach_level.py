@@ -32,19 +32,15 @@ class TestCoachLevelList(TestCase):
     """查看教练等级列表接口"""
     def test01_coachlevel_list(self):
         resp = coach_level.coach_level_list()
-        # print(resp.json())
-        # ret=jsonpath.jsonpath(resp.json(),'$..id')
-        coach_id = [i["id"] for i in resp.json()["data"]["list"]][-1]
-
-        print(coach_id)
+        self.assertEquals()
 
 
 
-# class TestCoachLevelDelete(TestCase):
-#     '''删除教练等级（教练等级的ID数据库中获取）'''
-#     def test01_coachlevel_delete_success(self):
-#         resp = coach_level.coach_level_delete()
-#         print(resp)
+class TestCoachLevelDelete(TestCase):
+    '''删除教练等级（教练等级的ID数据库中获取）'''
+    def test01_coachlevel_delete_success(self):
+        resp = coach_level.coach_level_delete()
+        print(resp)
 
 
 
