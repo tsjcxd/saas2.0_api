@@ -8,6 +8,7 @@ from unittest import TestCase
 from base.rest_client import Rest_Client
 from public.get_token import get_token
 from api.staff.coach_level import CoachLevel
+from operation.get_coach_id import get_coach_name_id
 import jsonpath
 
 coach_level = CoachLevel(get_token("st65271088319", "m562e7Qh"))
@@ -28,19 +29,19 @@ class TestCoachLevelCreate(TestCase):
 
 
 
-class TestCoachLevelList(TestCase):
-    """查看教练等级列表接口"""
-    def test01_coachlevel_list(self):
-        resp = coach_level.coach_level_list()
-        self.assertEquals()
+# class TestCoachLevelList(TestCase):
+#     """查看教练等级列表接口"""
+#     def test01_coachlevel_list(self):
+#         resp = coach_level.coach_level_list()
+#         self.assertEquals()
 
 
 
 class TestCoachLevelDelete(TestCase):
     '''删除教练等级（教练等级的ID数据库中获取）'''
     def test01_coachlevel_delete_success(self):
-        resp = coach_level.coach_level_delete()
-        print(resp)
+        resp = coach_level.coach_level_delete(get_coach_name_id(coach_level, "明星教练"))
+        print(resp.text)
 
 
 

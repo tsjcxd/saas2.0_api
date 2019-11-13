@@ -26,6 +26,7 @@ class Rest_Client:
 
     def delete(self,api,**kwargs):
         resp = self.request("delete",api)
+        return resp
 
     def request(self,method,api,params=None,data=None,json=None,**kwargs):
         url = BASE_URL+api
