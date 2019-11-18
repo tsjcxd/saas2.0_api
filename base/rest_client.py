@@ -28,6 +28,10 @@ class Rest_Client:
         resp = self.request("delete",api)
         return resp
 
+    def put(self,api,data=None,**kwargs):
+        resp = self.request("put",api, data=data, **kwargs)
+        return resp
+
     def request(self,method,api,params=None,data=None,json=None,**kwargs):
         url = BASE_URL+api
         if method=="get":
@@ -36,6 +40,8 @@ class Rest_Client:
             resp = self.session.post(url,data=data,json=json,**kwargs)
         if method=="delete":
             resp = self.session.delete(url,**kwargs)
+        if method =="put":
+            resp = self.session.put(url,data=data, **kwargs)
         return resp
 
 

@@ -20,6 +20,10 @@ class CoachLevel:
     def coach_level_delete(self, coach_id,**kwargs):
         resp = self.rest.delete('/v1/setting/coach/{}'.format(coach_id), **kwargs)
         return resp
+    
+    def coach_level_edit(self,coach_id,data=None,**kwargs):
+        resp = self.rest.put('/v1/setting/coach/{}'.format(coach_id), data=data,**kwargs)
+        return resp
         
 
 if __name__ == "__main__":

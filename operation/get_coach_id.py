@@ -57,7 +57,7 @@ def get_coach_name_id(coach_level, setting_name):
     try:
         return d[setting_name]
     except KeyError:
-        return f"Key '{setting_name}' 不存在."
+        return "Key '{}' 不存在.".format(setting_name)
 
 
 if __name__ == "__main__":
