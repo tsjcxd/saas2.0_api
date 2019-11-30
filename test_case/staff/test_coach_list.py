@@ -12,4 +12,4 @@ class TestCoachList(TestCase):
     def test01_coach_list(self):
         resp = coach_list.coach_list()
         print(resp.text)
-        self.assertEquals(resp.json()["code"],40507)
+        self.assertEqual(resp.json()["code"],0)
