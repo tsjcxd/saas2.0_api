@@ -1,28 +1,26 @@
-from base.rest_client import Rest_Client
+from base.rest_client import RestClient
 from public.get_token import get_token
 
 
-class CoachLevel:
+class CoachLevel(RestClient):
     """教练等级所有API的封装"""
-    def __init__(self,token):
-        self.rest = Rest_Client(token)
 
     def coach_level_list(self,data=None,**kwargs):
         """教练等级列表（分页）"""
-        resp = self.rest.get('/v1/setting/coach',data=data,**kwargs)
+        resp = self.get('/v1/setting/coach',data=data,**kwargs)
         return resp
 
     def coach_level_create(self,data=None, json=None, **kwargs):
         """新增教练等级"""
-        resp = self.rest.post('/v1/setting/coach', data=data, json=None, **kwargs)
+        resp = self.post('/v1/setting/coach', data=data, json=None, **kwargs)
         return resp
     
     def coach_level_delete(self, coach_id,**kwargs):
-        resp = self.rest.delete('/v1/setting/coach/{}'.format(coach_id), **kwargs)
+        resp = self.delete('/v1/setting/coach/{}'.format(coach_id), **kwargs)
         return resp
     
     def coach_level_edit(self,coach_id,data=None,**kwargs):
-        resp = self.rest.put('/v1/setting/coach/{}'.format(coach_id), data=data,**kwargs)
+        resp = self.put('/v1/setting/coach/{}'.format(coach_id), data=data,**kwargs)
         return resp
         
 

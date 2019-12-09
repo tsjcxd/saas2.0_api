@@ -5,9 +5,9 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspa
 from unittest import TestCase
 from base.rest_client import Rest_Client
 from public.get_token import get_token
-from api.account.chang_store import Change_Store
+from api.account.chang_store import ChangeStore
 
-change_store = Change_Store(get_token("st30273013056", "bnKD9667"))
+change_store = ChangeStore(get_token("st30273013056", "bnKD9667"))
 
 class TestGetStoreToken(TestCase):
     def test01_get_store_token(self):

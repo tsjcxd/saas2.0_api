@@ -3,7 +3,7 @@ from conf import BASE_URL,APP_VERSION,APP_ID
 from public.get_token import get_token
 
 
-class Rest_Client:
+class RestClient:
     """HTTP方法封装"""
     def __init__(self, token):
         header = {
@@ -15,6 +15,17 @@ class Rest_Client:
         self.session.headers.update(header)
         
     
+    # def get(self,api,**kwargs):
+    #     resp = self.tangtang("get",api,**kwargs)
+    #     return resp
+
+    # def tangtang(self,method,api,**kwargs):
+    #     url = BASE_URL+api
+    #     if method == "get":
+    #         resp = self.session.get(url,**kwargs)
+    #         return resp
+
+
 
     def get(self,api,params=None,**kwargs):
         resp = self.request("get",api,params=params,**kwargs)

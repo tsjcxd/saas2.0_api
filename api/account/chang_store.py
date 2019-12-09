@@ -1,8 +1,8 @@
-from base.rest_client import Rest_Client
+from base.rest_client import RestClient
 
-class Change_Store:
+class ChangeStore:
     def __init__(self,token):
-        self.rest_client = Rest_Client(token)
+        self.rest_client = RestClient(token)
         
     def change_store(self,data=None):
         resp = self.rest_client.put("/v1/account/switch/shop",data=data)
