@@ -4,8 +4,8 @@ from api.staff.coach_level import CoachLevel
 from public.get_token import get_token
 
 # coach_level = CoachLevel(get_token("st65271088319", "m562e7Qh"))
-def get_coach_name_id(coach_level, setting_name):
-    resp = coach_level.coach_level_list()
+def get_coach_name_id(saas_pro, setting_name):
+    resp = saas_pro.staff.coach_level_list()
 #     resp = {
 #     "code": 0,
 #     "msg": "success",

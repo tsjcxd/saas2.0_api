@@ -5,13 +5,12 @@ import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from unittest import TestCase
-from base.rest_client import Rest_Client
-from public.get_token import get_token
-from api.staff.coach_level import CoachLevel
+from saas_pro import SaasPro
 from operation.get_coach_id import get_coach_name_id
 import jsonpath
 
-coach_level = CoachLevel(get_token("st30273013056", "bnKD9667"))
+
+saas_pro = SaasPro(is_store=False)
 
 
 class TestCoachLevelCreate(TestCase):
@@ -22,7 +21,7 @@ class TestCoachLevelCreate(TestCase):
         payload={
              "setting_name": "金牌教练"
         }
-        resp = coach_level.coach_level_create(payload)
+        resp = saas_pro.staff.coach_level.coach_level_create(data=payload)
         print(resp.json())
         self.assertEquals(resp.json()["code"],0)
         
@@ -42,7 +41,7 @@ class TestCoachLevelEdit(TestCase):
         payload={
              "setting_name": "金牌教练编辑后"
         }
-        resp = coach_level.coach_level_edit(get_coach_name_id(coach_level,"金牌教练"),data=payload)
+        resp = saas_pro.staff.coach_level.coach_level_edit(get_coach_name_id(saas_pro,"金牌教练"),data=payload)
         print(resp.text)
         self.assertEquals(resp.json()["code"],0)
 
@@ -50,7 +49,7 @@ class TestCoachLevelEdit(TestCase):
 class TestCoachLevelDelete(TestCase):
     '''删除教练等级（教练等级的ID从教练列表中获取）'''
     def test01_coachlevel_delete_success(self):
-        resp = coach_level.coach_level_delete(get_coach_name_id(coach_level, "金牌教练编辑后"))
+        resp = saas_pro.staff.coach_level.coach_level_delete(get_coach_name_id(saas_pro, "金牌教练编辑后"))
         print(resp.text)
         self.assertEquals(resp.json()["code"],0)
 
