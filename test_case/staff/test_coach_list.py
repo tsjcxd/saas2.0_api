@@ -2,14 +2,13 @@ import sys
 import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 from unittest import TestCase
-from api.staff.coach_list import Coach_list
-from public.get_token import get_token
+from saas_pro import SaasPro
 
-coach_list = Coach_list(get_token("st30273013056", "bnKD9667"))
+saas_pro = SaasPro(is_store=True)
 
 
 class TestCoachList(TestCase):
     def test01_coach_list(self):
-        resp = coach_list.coach_list()
+        resp = saas_pro.staff.coach_list.coach_list()
         print(resp.text)
         self.assertEqual(resp.json()["code"],0)
