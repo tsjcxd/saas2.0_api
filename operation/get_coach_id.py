@@ -4,7 +4,7 @@ from api.staff.coach_level import CoachLevel
 from public.get_token import get_token
 
 # coach_level = CoachLevel(get_token("st65271088319", "m562e7Qh"))
-def get_coach_name_id(saas_pro, setting_name):
+def get_coach_name_id(saas_pro, k):
     resp = saas_pro.staff.coach_level_list()
 #     resp = {
 #     "code": 0,
@@ -55,9 +55,9 @@ def get_coach_name_id(saas_pro, setting_name):
     for i in resp.json()["data"]["list"]:
         d.update({i["setting_name"]:i["id"]})
     try:
-        return d[setting_name]
+        return d[k]
     except KeyError:
-        return "Key '{}' 不存在.".format(setting_name)
+        return "Key '{}' 不存在.".format(k)
 
 
 if __name__ == "__main__":

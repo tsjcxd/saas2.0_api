@@ -5,7 +5,8 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspa
 from unittest import TestCase
 from saas_pro import SaasPro
 
-saas_pro = SaasPro(is_store = False)
+store_course = SaasPro(is_store=True)
+brand_course = SaasPro(is_store=False)
 
 class TestBrandPersonalCourse(TestCase):
 
@@ -14,8 +15,14 @@ class TestBrandPersonalCourse(TestCase):
             "page":1,
             "size":3
         }
-        resp = saas_pro.course.brand_personal_course.brand_personal_course_list(payload)
+        resp = brand_course.course.personal_course.brand_personal_course_list(payload)
         self.assertEqual(len(resp.json()["data"]["list"]),3)
         # print(resp.json())
+
+class TestStorePersonalCourse(TestCase):
+
+    def test02_store_personal_course_list(self):
+        resp = store_course.course.personal_course.store_personal_course_list()
+        print(resp.json())
 
         

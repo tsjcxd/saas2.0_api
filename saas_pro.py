@@ -5,7 +5,6 @@ from api.course.course import Course
 
 class SaasPro:
 
-    a=1
 
     def __init__(self, is_store=True, **kawrgs):
         self.token = get_token("st30273013056","bnKD9667",is_store, **kawrgs)
