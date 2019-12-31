@@ -14,5 +14,8 @@ class PersonalCourse(RestClient):
         resp = self.get("/v1/course/personal/shop",params=None,**kwargs)
         return resp
 
+    def brand_store_personal_course_lise(self,params=None,**kwargs):
+        resp = self.get("/v1/course/personal/brand/shop",params=None,**kwargs)
+        return resp
     
 

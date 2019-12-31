@@ -28,11 +28,11 @@ class TestCoachLevelCreate(TestCase):
 
 
 
-# class TestCoachLevelList(TestCase):
-#     """查看教练等级列表接口"""
-#     def test01_coachlevel_list(self):
-#         resp = coach_level.coach_level_list()
-#         self.assertEquals()
+class TestCoachLevelList(TestCase):
+    """查看教练等级列表接口"""
+    def test01_coachlevel_list(self):
+        resp = saas_pro.staff.coach_level.coach_level_list()
+        self.assertEquals()
 
 
 class TestCoachLevelEdit(TestCase):

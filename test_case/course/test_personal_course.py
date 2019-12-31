@@ -22,7 +22,23 @@ class TestBrandPersonalCourse(TestCase):
 class TestStorePersonalCourse(TestCase):
 
     def test02_store_personal_course_list(self):
-        resp = store_course.course.personal_course.store_personal_course_list()
+        payload={
+            "page":1,
+            "size":20
+        }
+        resp = store_course.course.personal_course.store_personal_course_list(payload
+        )
         print(resp.json())
+
+class TestBrandStorePersonalCourse(TestCase):
+
+    def test03_brand_store_personal_course_list(self):
+        payload={
+            "page":1,
+            "size":20,
+            "shop_id":352231090618557
+        }
+        resp = brand_course.course.personal_course.brand_store_personal_course_lise(payload)
+
 
         
