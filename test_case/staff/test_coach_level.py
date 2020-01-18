@@ -17,15 +17,19 @@ connect = ExecuteSQL('saas_test')
 class TestCoachLevelCreate(TestCase):
     """教练等级新增接口"""
 
+
     def test01_coachlevel_create_success(self):
         """case01: """
         payload={
-             "setting_name": "自动化0102"
+             "setting_name": "自动化0109"
         }
         resp = saas_pro.staff.coach_level.coach_level_create(data=payload)
-        print(resp.json())
-        self.assertEquals(resp.json()["code"],0)
-        self.assertEquals("自动化0102",connect.excute_sql("SELECT * FROM `app_setting` where setting_type=4 and setting_name='金牌教练' and is_del=0 and brand_id=176221133013056;")["setting_name"])
+        sql_data = connect.get_singledata('''SELECT * FROM `app_setting` where setting_name="{}";'''.format(payload["setting_name"]))
+        self.assertIsNotNone(sql_data,"新增数据失败")
+        self.assertEquals(sql_data["result"], 1)
+        self.assertEquals(sql_data["status"], 2)
+
+        # connect.close_conn()
         
 
 

@@ -39,11 +39,11 @@ class ExecuteSQL:
         cur = self.conn.cursor()
         try:
             cur.execute(sql)
-            results = cur.fetone()
+            results = cur.fetchone()
         except Exception as data:
             print('Error: 执行查询失败，%s' % data)
-        finally:
-            self.conn.close()
+        # finally:
+        #     self.conn.close()
         return results
         
     def get_alldata(self,sql):
@@ -54,10 +54,12 @@ class ExecuteSQL:
             results = cur.fetall()
         except Exception as data:
             print('Error: 执行查询失败，%s' % data)
-        finally:
-            self.conn.close()
+        # finally:
+        #     self.conn.close()
         return results
-
+    
+    def close_conn(self):
+        self.conn.close()
 
 
 if __name__ == "__main__":
